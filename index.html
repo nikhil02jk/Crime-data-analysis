@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Crime Analysis</title>
+    <style>
+        h1 {
+            font-size: 100px;  /* Increases the font size */
+            color: black;     /* Changes the font color to black */
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#exploration">Data Exploration</a></li>
+            <li><a href="#models">Models Implemented</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#team">Team</a></li>
+        </ul>
+    </nav>
+
+    <!-- Introduction Section with Background Image -->
+    <section id="introduction" class="intro-section">
+        <h1>US Crime Analysis</h1>
+        <h2>1. INTRODUCTION </h2>
+        <p>We are a team of three consisting of,</p>
+
+            <p>Pranav Vinayak Chopdekar, Nikhil Jaswaraj Karkera, Mahendra Varmah Vaddi and we are doing a project upon crime data analysis</p>
+        </p>
+            As we speak, crime has been rising over the last few decades. Numerous crimes are committed that violate people's moral and ethical principles. Every week, thousands of instances are reported in the USA. It turns out that some of these cases are also quite serious.
+            Law enforcement organizations and legislators have been searching for novel ways to increase crime prevention tactics and public safety because of the recent spike in crime rates. Using data mining techniques to examine crime data is one such method that offers insightful information on trends, patterns, and correlations in crime. 
+            To analyze past crime data, spot underlying trends, and forecast future instances of criminal activity, this research will make use of data mining techniques. This research will unearth important data that will help law enforcement organizations allocate resources, prevent crime, and develop strategic plans. In the end, this analysis's conclusions will aid in the creation of data-driven policies that improve community safety.
+            The information we selected was obtained from the US government website and includes almost one lakh rows with information on the county in which the incident occurred, the type of offense committed, and the age of the offender. We would be able to extract significant insights by utilizing R and Python.
+            </p>
+
+            <h2>The Nature of the Topic</h2>
+            <p>
+                This project focuses on analyzing crime data across the United States to identify patterns, trends, and anomalies over time. The study encompasses various types of crimes, including violent crimes, property crimes, and cybercrimes, across different regions and demographics. The goal is to gain insights into crime distribution and contributing factors such as socio-economic conditions, geography, and law enforcement efficacy.
+            </p>
+        
+            <h2>Why It Is Important</h2>
+            <p>
+                Crime analysis is crucial for improving public safety and guiding law enforcement efforts. Understanding crime patterns helps authorities allocate resources more effectively, identify high-risk areas, and implement policies that target the root causes of crime. It also aids policymakers and community leaders in designing preventive strategies, ultimately leading to safer communities. Additionally, analyzing crime trends can help predict and reduce future criminal activities.
+            </p>
+        
+            <h2>Who Is Affected</h2>
+            <p>
+                Crime affects various groups of people, including victims, perpetrators, law enforcement agencies, policymakers, and the general public. Victims and their families experience direct consequences, while the broader community faces fear, economic costs, and diminished quality of life. Law enforcement agencies are impacted by the need to allocate resources efficiently, and policymakers must address rising crime rates while ensuring social justice. Ultimately, the safety and well-being of every citizen are at stake.
+            </p>
+        
+            <h2>What Has Been Done So Far and What Gaps Remain</h2>
+            <p>
+                Numerous studies have analyzed U.S. crime data, leading to the development of various crime prevention strategies and policies. Data-driven policing models, such as predictive policing, have been implemented in several cities. However, significant gaps remain in addressing the underlying causes of crime, particularly regarding socio-economic inequality and mental health issues. Additionally, there is limited research on the effectiveness of current interventions, and the impact of new forms of crime, such as cybercrime, remains underexplored.
+            </p>
+        
+            <h2>Key Questions to Answer from the Dataset</h2>
+            <ol>
+                <li>Which types of crimes have increased or decreased over the past decade?</li>
+                <li>What are the most common types of crimes in specific regions or states?</li>
+                <li>How does socio-economic status correlate with crime rates in urban areas?</li>
+                <li>Which cities or states have the highest rates of violent crimes?</li>
+                <li>What time of year (season) sees the highest crime rates?</li>
+                <li>Is there a relationship between education levels and crime rates?</li>
+                <li>How do crime rates compare between rural and urban areas?</li>
+                <li>What is the rate of crime resolution or arrests in different types of crimes?</li>
+                <li>How has the rise of cybercrime affected overall crime statistics in recent years?</li>
+                <li>What are the demographic profiles of individuals most likely to be involved in criminal activity?</li>
+            </ol>
+        <button onclick="location.href='page2.html'">Learn More</button>
+    </section>
+
+    <section class="image-section">
+        <h2>HOT NEWS ON CRIME </h2>
+        <div class="image-grid">
+            <!-- <img src="images/crime1.jpg" alt="Crime Statistics Image 1"> -->
+            <img src="images/crime1.jpg" alt="Crime Statistics Image 2">
+
+            <h2></h2>
+            <div class="image-with-text">
+                <img src="images/crime3.jpg" alt="Crime Statistics Image 3">
+                <h2 class="bold-text">IS IT TRUE??</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Exploration Section -->
+    <section id="exploration">
+        <h2>2. DATA COLLECTION/PREPARATION, CLEANING & VISUALIZATION</h2>
+        <h3>DATA COLLECTION </h3>
+        <p>We successfully fetched data from the Cincinnati Police Department web portal using their provided API. However, due to a limitation that allows the API to return only 1000 records per request, we had to implement pagination to ensure we retrieved the complete dataset. This involved making multiple requests, adjusting the parameters in each call to sequentially collect the next batch of records until the entire dataset was obtained. By automating this process, we ensured data consistency and completeness for our analysis.</p>
+        <h4>DATA SOURCE API - https://data.cincinnati-oh.gov/resource/k59e-2pvf.json </h4>
+        <div class="image-with-text">
+            <img src="images/api_data.png" alt="Crime Statistics Image 3">
+        </div>
+        <h3>DATA CLEANING</h3>
+        <h4>Snapshot of the data before cleaning</h4>
+        <div class="image-with-text">
+            <img src="images/1.png" alt="Crime Statistics Image 3">
+        </div>
+        <h4>Removing duplicates</h4>
+        <div class="image-with-text">
+            <img src="images/2.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h5>Some of the columns have _x in their names , hence we are cleaning the column names </h5>
+        <div class="image-with-text">
+            <img src="images/6.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>The column data reported has both date and time in it , hence we are splittting the column and making it two seperate columns</h4>
+        <div class="image-with-text">
+            <img src="images/10.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h3>DATA STANDARDIZATION</h3>
+
+        <h5>The column VICTIM GENDER has junk values hence we are converting different variations of gender representations into a consistent format (i.e., "Male," "Female," and "Unknown"). This ensures uniformity and reduces inconsistencies in the dataset, making it easier to analyze and interpret</h5>
+        <h5>Before standarizing</h5>
+        <div class="image-with-text">
+            <img src="images/7.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h5>After standarizing</h5>
+        <div class="image-with-text">
+            <img src="images/8.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h5>The column SUSPECT GENDER has junk values hence we are converting different variations of gender representations into a consistent format (i.e., "Male," "Female," and "Unknown"). This ensures uniformity and reduces inconsistencies in the dataset, making it easier to analyze and interpret</h5>
+        <h5>After standarizing</h5>
+        <div class="image-with-text">
+            <img src="images/9.png" alt="Crime Statistics Image 3">
+        </div>
+
+
+        <h4>DATA REDUCTION</h4>
+        <h5>Since these are the important columns on which we perform lot of analysis , hence we are dropping rows in which these values are null </h5>
+        <div class="image-with-text">
+            <img src="images/3.png" alt="Crime Statistics Image 3">
+        </div>
+        <h5>Since most of the data around 90% in these columns are null , we are unable to poplate it with any values like mean, meadian or mode ,hence we are dropping these columns </h5>
+        <div class="image-with-text">
+            <img src="images/4.png" alt="Crime Statistics Image 3">
+        </div>
+
+
+        <h5> Offense is the column on which we have most of the details , if the value of the offense is not know we are dropping the records 
+        </h5>
+        <div class="image-with-text">
+            <img src="images/5.png" alt="Crime Statistics Image 3">
+        </div>
+
+        
+
+        <h4>DATA NORMALIZATION</h4>
+        <h5>Normalization ensures that all the features (in this case, LONGITUDE and LATITUDE) are on the same scale, which is especially important for algorithms that compute distances between data points</h5>
+        <div class="image-with-text">
+            <img src="images/11.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>DATA QUALITY</h4>
+        <h5>Checking wether the Normalization of the data is applied or not </h5>
+        <div class="image-with-text">
+            <img src="images/14.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>DATA STATISTICS</h4>
+        <h5>Summary statistics for numerical column </h5>
+        <div class="image-with-text">
+            <img src="images/12.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h5>Summary statistics for categorical column </h5>
+        <div class="image-with-text">
+            <img src="images/13.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>DATA VISUALIZATION</h4>
+        <h4>1. Line Plot: Crime Reports Over Time</h4>
+        <ul>
+            <li>This line plot shows the number of <strong>crime reports</strong> over time from 2018 to 2022.</li>
+            <li>The x-axis represents the <strong>Date Reported</strong>, while the y-axis shows the <strong>Number of Reports</strong>.</li>
+            <li>The plot reveals frequent fluctuations, with peaks exceeding 120 reports on certain days and drops as low as 20 reports.</li>
+            <li>Overall, the data displays variability in daily crime reporting, with no clear trend of increase or decrease over the observed time period.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/15.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>2. Bar Chart: Top 10 Offense Types</h4>
+        <ul>
+            <li>This bar chart displays the top 10 most frequent <strong>offense types</strong> in the dataset.</li>
+            <li>The x-axis shows the offense types, while the y-axis represents the <strong>frequency</strong> or number of occurrences.</li>
+            <li><strong>Theft</strong> and <strong>Assault</strong> are the most common offenses, each with over 13,000 reports.</li>
+            <li>Other significant offenses include <strong>Endangering</strong>, <strong>Domestic Violence</strong>, and <strong>Felonious Assault</strong>.</li>
+            <li>The less frequent offenses in the top 10 are <strong>Robbery</strong>, <strong>Menacing</strong>, <strong>Burglary</strong>, <strong>Harassment</strong>, and <strong>Aggravated Menacing</strong>.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/16.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>3. Correlation Summary- Heat MAP</h4>
+        <ul>
+        <li>The largest positive correlation (0.54) is between <strong>HOUR_FROM</strong> and <strong>HOUR_TO</strong>, represented in light orange.</li>
+        <li>The darker blue hues indicate very weak correlations, close to 0, for the majority of other variables.</li>
+        <li>The correlation between <strong>TOTALSUSPECTS</strong> and <strong>UCR</strong> is moderately negative (-0.16).</li>
+        <li>The diagonal of the heatmap represents perfect correlations (1) for each variable with itself.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/17.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>4.Bar Plot: Number of Crimes by ZIP Code</h4>
+        <ul>
+            <li>The number of crimes by ZIP code is displayed in this bar chart. The ZIP codes are shown on the X-axis, while the number of offenses is shown on the Y-axis.</li>
+            <li>With almost 40,000 offenses, ZIP code 45202.0 has the most.</li>
+            <li>The next two ZIP codes, 45205.0 and 45211.0, each have almost 30,000 offenses.</li>
+            <li>There are between 20,000 and 25,000 fewer crimes in other ZIP codes, such as 45214.0, 45225.0, and 45206.0.</li>
+            <li>The distribution of crime in various places is seen in the chart, with 45202.0 having the most impact.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/18.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>5. Scatter Plot: Longitude vs Latitude for Theft Offenses</h4>
+        <ul>
+            <li>This scatter plot displays the relationship between <strong>Longitude</strong> (x-axis) and <strong>Latitude</strong> (y-axis) for theft offenses.</li>
+            <li>Each point represents a reported theft offense based on its geographic coordinates (longitude and latitude).</li>
+            <li>The clustering of points suggests that theft offenses are more concentrated in certain geographic regions.</li>
+            <li>The plot helps to visualize the spatial distribution of theft-related incidents.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/19.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>6. Word Cloud: Offenses and Locations</h4>
+    <ul>
+        <li>This word cloud visualizes the most frequently occurring words related to <strong>offenses</strong> and <strong>locations</strong>.</li>
+        <li>The size of each word represents its frequency in the dataset, with larger words appearing more often.</li>
+        <li>Key terms such as "FAMILY," "DAMAGING," "MULTI," "APARTMENT," and "STREET" stand out, indicating they are frequently mentioned in crime reports.</li>
+        <li>The word cloud is useful for quickly identifying the most common terms associated with offenses and their locations.</li>
+    </ul>
+        <div class="image-with-text">
+            <img src="images/20.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>7. Bar Graph: Distribution of Crime Clearance Types</h4>
+    <ul>
+        <li>This bar graph illustrates the distribution of <strong>crime clearance types</strong>, showing how cases are resolved.</li>
+        <li>The most common clearance type is <strong>"Z-EARLY CLOSED"</strong>, with over 160,000 cases, followed by <strong>"J-CLOSED"</strong> with approximately 140,000 instances.</li>
+        <li><strong>"F-CLEARED BY ARREST - ADULT"</strong> ranks third with around 120,000 cases, indicating a significant number of cases cleared through arrests.</li>
+        <li>There's a notable drop to <strong>"D-VICTIM REFUSED TO COOPERATE"</strong>, which has about 40,000 occurrences, showing the impact of non-cooperation in case resolutions.</li>
+        <li>Other clearance types, such as <strong>"E-JUVENILE/NO CUSTODY"</strong>, have much lower frequencies, ranging from roughly 20,000 down to nearly zero.</li>
+        <li>This visualization highlights the predominant outcomes in crime clearance, with early closures and standard case resolutions being the most frequent, while other methods like arrests and procedural steps are less common.</li>
+    </ul>
+        <div class="image-with-text">
+            <img src="images/21.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>8 . Pie Chart: Distribution of UCR Groups</h4>
+        <ul>
+            <li>This pie chart visualizes the distribution of <strong>UCR Groups</strong>, highlighting various crime types.</li>
+            <li>The largest segment is <strong>"PART 2 MINOR"</strong>, which represents 56.1% of the total, indicating that minor crimes dominate the data.</li>
+            <li><strong>Theft</strong> accounts for 17.9%, followed by <strong>Robbery</strong> (8.6%) and <strong>Aggravated Assaults</strong> (7.2%).</li>
+            <li><strong>Burglary/Breaking Entering</strong> constitutes 6.6% of the total offenses.</li>
+            <li>Smaller crime categories include <strong>Rape</strong> (1.8%) and <strong>Homicide/Unauthorized Use</strong> (1.2%), showing they are less common in the data.</li>
+            <li>The chart effectively shows that the majority of crimes are minor, with more serious offenses being less frequent.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/22.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>9. QQ Plot: Checking Normality of Date Reported</h4>
+        <ul>
+            <li>This QQ plot is used to check the <strong>normality</strong> of the <strong>date_reported</strong> variable.</li>
+            <li>The blue points represent the actual data (ordered values of <strong>date_reported</strong>), while the red line represents the expected values if the data were normally distributed.</li>
+            <li>If the points follow the red line closely, it indicates that the data is normally distributed. </li>
+            <li>In this plot, there is a noticeable deviation from the red line, especially at the ends (tails), indicating that <strong>date_reported</strong> does not fully follow a normal distribution.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/23.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>10. Bar Graph: Most Frequent Times Reported</h4>
+        <ul>
+            <li>This bar graph displays the most frequent times when crimes were <strong>reported</strong>.</li>
+            <li>The x-axis shows specific times of the day, while the y-axis represents the <strong>frequency</strong> of reports.</li>
+            <li>The most frequent times for crime reporting are <strong>04:00 PM</strong> and <strong>03:00 PM</strong>, each with over 350 reports.</li>
+            <li>Other common reporting times include <strong>01:00 PM</strong>, <strong>12:00 PM</strong>, and <strong>12:00 AM</strong>.</li>
+            <li>The frequency gradually declines towards the evening, with <strong>11:00 PM</strong> being the lowest in the selected time range.</li>
+            <li>This visualization helps identify the times of day when crime reporting is most common, with early afternoon being a peak period.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/24.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>11. Pie Chart: Total Number of Crimes Committed by Day of the Week</h4>
+    <ul>
+        <li>This pie chart visualizes the <strong>total number of crimes</strong> committed by day of the week.</li>
+        <li><strong>Sunday</strong> has the highest percentage of crimes at 15.4%, followed closely by <strong>Saturday</strong> at 15.0%.</li>
+        <li><strong>Monday</strong> accounts for 14.6% of the total crimes, while <strong>Tuesday</strong> has 14.1%, and <strong>Friday</strong> accounts for 14.0%.</li>
+        <li><strong>Wednesday</strong> and <strong>Thursday</strong> represent the lowest percentages, at 13.6% and 13.3%, respectively.</li>
+        <li>This distribution shows that crimes occur fairly evenly throughout the week, with a slight increase during weekends.</li>
+    </ul>
+        <div class="image-with-text">
+            <img src="images/25.png" alt="Crime Statistics Image 3">
+        </div>
+
+        <h4>12. Count Plot: Victim Gender vs Suspect Gender</h4>
+    <ul>
+        <li>This count plot compares the <strong>victim's gender</strong> with the <strong>suspect's gender</strong> in reported crimes.</li>
+        <li>For <strong>female victims</strong>, the majority of suspects are <strong>male</strong>, with over 80,000 instances, while female suspects are less frequent.</li>
+        <li>For <strong>male victims</strong>, the trend is similar, with most suspects being <strong>male</strong>, though the count is lower compared to female victims.</li>
+        <li>This plot indicates that male suspects are more prevalent in crimes involving both male and female victims.</li>
+    </ul>
+        <div class="image-with-text">
+            <img src="images/26.png" alt="Crime Statistics Image 3">
+        </div>
+
+
+        <h4>13. Treemap: Offenses by Number of Victims</h4>
+        <ul>
+            <li>This treemap visualizes the distribution of <strong>offenses</strong> based on the <strong>number of victims</strong>.</li>
+            <li>Each rectangle represents a different offense, with the size corresponding to the total number of victims.</li>
+            <li>The color scale indicates the total number of victims, ranging from yellow (higher counts) to dark purple (lower counts).</li>
+            <li><strong>Assault</strong> and <strong>Theft</strong> have the largest number of victims, followed by offenses like <strong>Criminal Damaging/Endangering</strong> and <strong>Felonious Assault</strong>.</li>
+            <li>Smaller offenses, such as <strong>Rape</strong> and <strong>Menacing</strong>, have fewer victims, as shown by the smaller rectangles.</li>
+            <li>This visualization provides a clear view of the most impactful offenses in terms of victim count.</li>
+        </ul>
+        <div class="image-with-text">
+            <img src="images/27.png" alt="Crime Statistics Image 3">
+        </div>
+
+
+    </section>
+
+    <!-- Models Implemented Section -->
+    <section id="models">
+        <h2>3. Models Implemented</h2>
+        <p>No content is required for this tab for Milestone 2.</p>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion">
+        <h2>4. Conclusion & Results</h2>
+        <p>No content is required for this tab for Milestone 2.</p>
+    </section>
+
+    <!-- Team Section with Background Image -->
+    <section id="team" class="team-section">
+        <h2>Team Members</h2>
+        <div class="team-member">
+            <img src="images/team1.jpg" alt="Team Member 1">
+            <h3>Nikhil J K</h3>
+            <p>Data Scientist | LinkedIn: <a href="https://www.linkedin.com/in/nikhiljk02/">Nikhil Jaswaraj Karkera</a></p>
+        </div>
+        <div class="team-member">
+            <img src="images/team2.jpg" alt="Team Member 2">
+            <h3>Pranav Chopdekar</h3>
+            <p>Backend Developer | LinkedIn: <a href="https://www.linkedin.com/in/pranav-chopdekar-350243269/">Pranav Chopdekar</a></p>
+        </div>
+        <div class="team-member">
+            <img src="images/team3.jpg" alt="Team Member 3">
+            <h3>Mahendra Varma</h3>
+            <p>Frontend Developer | LinkedIn: <a href="https://www.linkedin.com/in/mahendra-varma-a18456201/">Mahendra Varma</a></p>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
