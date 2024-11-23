@@ -369,6 +369,9 @@
         <div class="image-with-text">
             <img src="images/models/knn1.png" alt="Crime Statistics Image 3">
         </div>
+        <div class="image-with-text">
+            <img src="images/models/CM1.jpeg" alt="Crime Statistics Image 3">
+        </div>
         <p>
             The K-Nearest Neighbors (KNN) model achieved an accuracy of <strong>82.14%</strong> and an F1-score of <strong>79.96%</strong> on the test dataset. The classification report provides detailed metrics for each class, including precision, recall, and F1-score.
         </p>
@@ -378,16 +381,28 @@
         <p>
             The macro-average F1-score is <strong>0.56</strong>, reflecting the imbalance in performance across classes, while the weighted average F1-score is <strong>0.80</strong>, indicating overall performance weighted by class support. These results suggest that while the model works well for majority classes, it struggles with underrepresented or minority classes, which might require further optimization or rebalancing of the dataset.
         </p>
+        <p>High Accuracy for Class 3: Class 3 has the highest correctly classified instances with 19,041, indicating excellent performance for this class.
+            Misclassifications: Class 0 shows significant misclassification, with 962 instances predicted as Class 3. Class 5 has 857 instances misclassified as Class 3 and 242 instances misclassified as Class 0. Other classes like 1, 4, 6, and 7 also show some degree of misclassification, though less severe.
+            Confusion for Neighboring Classes: The confusion is noticeable for classes that are "neighboring" or similar in data space, e.g., misclassification between Classes 5 and 3.
+            Sparse Misclassifications: Certain classes have very few non-zero values for off-diagonal elements, such as Class 7, where most predictions fall under Class 7 with minor misclassifications.
+            Dominant Class Sizes: Class 3 dominates the dataset in terms of size, as reflected by the large count of true and predicted values compared to other classes.
+            </p>
 
         <h4>2.RANDOM FOREST </h4>
         <div class="image-with-text">
             <img src="images/models/image.png" alt="Crime Statistics Image 3">
+        </div>
+        <div class="image-with-text">
+            <img src="images/models/CM2.jpeg" alt="Crime Statistics Image 3">
         </div>
         <p>
             In this model, we are predicting the VICTIM_ETHNICITY using UCR_GROUP as the input feature. The significance of calculating this variable lies in its potential to provide insights into how different crime categories are associated with specific victim demographics. This can help law enforcement and policymakers identify trends, address potential biases, and allocate resources effectively to support vulnerable groups. By understanding these relationships, interventions can be tailored to improve community safety and inclusivity.
 The model's output shows an accuracy of 93.08%, meaning that the predictions are highly accurate for the test dataset. The F1-score is 89.74%, which indicates that the model has a strong balance between precision and recall, ensuring reliable results across various categories. Overall, the Random Forest classifier demonstrates its effectiveness in classifying victim ethnicity based on crime group data. However, further fine-tuning, feature engineering, or incorporating additional variables might enhance the model's performance and provide even deeper insights.
 
         </p>
+        <p>True labels are shown on the vertical axis, and predicted labels are on the horizontal axis. Most correct predictions are concentrated on the diagonal of the matrix, particularly for the class corresponding to True Label 4 (Predicted Label 4) with 33,135 correct predictions. Misclassifications are minimal but present:1,017 instances of True Label 2 were predicted as Label 4.1,434 instances of True Label 5 were predicted as Label 4. Classes with very low sample counts (e.g., Labels 0, 1, 3, 6, 7, and 8) show either no predictions or very minimal counts in both correct and incorrect predictions.
+            Overall, the model seems highly biased toward predicting Label 4, as most predictions fall in this category.
+            </p>
 
 
         <h4>3.RANDOM FOREST WITH PCA </h4>
@@ -397,9 +412,19 @@ The model's output shows an accuracy of 93.08%, meaning that the predictions are
         <div class="image-with-text">
             <img src="images/models/image3.png" alt="Crime Statistics Image 3">
         </div>
+        <div class="image-with-text">
+            <img src="images/models/random forest pca.jpeg" alt="Crime Statistics Image 3">
+        </div>
         <p>
             The output shows the performance metrics for the Random Forest model trained on the PCA-transformed dataset. The model achieved an accuracy of 89.37%, indicating that nearly 9 out of 10 predictions were correct. The precision of 89.57% reflects the model's ability to minimize false positives and correctly identify true positives. The recall of 89.37% shows the model's capability to detect most of the actual positive cases, while the F1-score of 88.43% provides a balanced metric that considers both precision and recall.
 it likely improved the computational efficiency and performance by reducing noise and redundancy in the features while retaining essential variance. This combination of PCA with Random Forest provides a robust approach for handling high-dimensional datasets effectively.
+            </p>
+        <p>Correct predictions (values on the diagonal) are most significant for True Label 10 (Predicted Label 10), with 28,797 correct predictions, indicating strong performance for this class.
+            Other classes have fewer correct predictions, such as: True Label 7: 2,184 correct predictions. True Label 6: 728 correct predictions.
+            Misclassifications: Many misclassifications occur across different labels: True Label 6 is often confused with Labels 7, 8, and 10. True Label 7 has significant misclassifications, with 331 instances predicted as Label 10.
+            True Label 5 shows notable misclassifications across Labels 6, 7, and 10. Some rows (e.g., True Labels 0, 1, 2) show very low correct prediction counts and significant misclassification spread.
+            Class bias: Predictions are skewed heavily towards Label 10, which has the largest count overall, indicating a potential class imbalance.
+            Low performance on rare classes: Classes with True Labels 0, 1, 2, and 4 have very few correct predictions, indicating poor performance on these less frequent labels.
             </p>
 
 
@@ -407,23 +432,42 @@ it likely improved the computational efficiency and performance by reducing nois
         <div class="image-with-text">
             <img src="images/models/image4.png" alt="Crime Statistics Image 3">
         </div>
+        <div class="image-with-text">
+            <img src="images/models/CM4.jpeg" alt="Crime Statistics Image 3">
+        </div>
         <p>Predicting TOTALSUSPECTS is significant because it provides valuable insights into the patterns and characteristics associated with criminal incidents. By accurately forecasting the number of suspects involved in a case, law enforcement agencies can better allocate resources, prioritize investigations, and identify trends that could indicate larger issues, such as organized crime or recurring offenders. This information can also support data-driven decision-making in crime prevention strategies, helping policymakers address underlying factors contributing to higher numbers of suspects in certain areas or scenarios. Additionally, such predictions can enhance public safety by enabling more focused and effective interventions.</p>
         <p>The performance metrics show that the model achieved an accuracy of 70.38%, meaning it correctly predicted the total number of suspects in approximately 7 out of 10 cases. The precision of 58.81% reflects moderate success in minimizing false positives, while the recall of 70.38% indicates a good ability to identify most true cases. The F1-score of 59.54% provides a balanced measure of precision and recall. These results suggest reasonable performance but highlight opportunities for improvement through techniques like feature engineering or dataset balancing.</p>
-
+        <p>Correct Predictions (Diagonal Values): The largest number of correct predictions is for True Label 0, with 24,833 correctly classified instances. True Labels 1 and 2 also have relatively high correct predictions, with 5,758 and 2,509, respectively. Correct predictions for other labels drop significantly, with minimal correct classifications for labels like 3 through 9.
+            Misclassifications: Most misclassifications occur in the neighboring classes: For True Label 0, 228 instances are classified as Label 1, and 20 are classified as Label 3.For True Label 1, 177 instances are classified as Label 0, and 24 as Label 3. Misclassifications decrease significantly for labels with fewer samples (e.g., Labels 5, 6, 7, 8, and 9).
+            Class Imbalance or Bias: The model performs significantly better for dominant labels like 0, 1, and 2, suggesting potential class imbalance or insufficient separability for other labels. Rare or less-represented labels (5 through 9) have negligible correct predictions and are mostly misclassified as Label 0 or 1.
+            Model Performance: The overall trend shows that the model struggles to generalize for minor classes. The diagonal dominance is visible for major classes, but the confusion for less-represented classes highlights performance issues.
+            </p>
 
 
         <h4>5.NAIVE BIAS</h4>
         <div class="image-with-text">
             <img src="images/models/image5.png" alt="Crime Statistics Image 3">
         </div>
+        <div class="image-with-text">
+            <img src="images/models/CM5.jpeg" alt="Crime Statistics Image 3">
+        </div>
         <p>The variable being predicted by the Naive Bayes model is TOTALSUSPECTS, which represents the total number of suspects involved in each case. This prediction is significant because it provides valuable insights into crime patterns and allows law enforcement agencies to better understand the scale of incidents, allocate resources efficiently, and identify potential trends in criminal activity. By forecasting the number of suspects, this model can aid in strategic decision-making and help prioritize cases that may require more immediate attention.</p>
         <p>The Naive Bayes model achieved an accuracy of 82.91%, meaning it correctly predicted the number of suspects in approximately 83% of the test cases. The precision of 86.29% highlights the model's ability to avoid false positives, ensuring the predictions are specific and reliable. The recall of 82.91% indicates that the model successfully identified most true cases, capturing the majority of actual incidents involving suspects. The F1-score of 82.71% shows a balanced performance in terms of precision and recall, making the model robust for practical applications.</p>
+        <p>Strong Class 10 Performance: The model shows perfect classification for class 10 (29297 correct predictions), which appears to be the majority class based on the color intensity.
+            Major Misclassification Patterns: Class 7 has significant misclassifications: 1883 instances were incorrectly predicted as class 0, and 695 as class 6Class 3 also shows notable confusion: 772 instances predicted as class 0, and 175 as class 6. Class 5 has 409 instances misclassified as class 0, and 447 as class 6.
+            Common Error Pattern: Classes 0 and 6 appear to be frequent incorrect predictions across multiple true classes, suggesting the model might be biased towards these classes.
+            Weak Performance Areas: Classes 7 and 8 show very few correct predictions The model seems to rarely predict classes 7, 8, and 9, as indicated by the mostly zeros in these columns.
+            Diagonal Performance: The diagonal elements (representing correct predictions) are notably weaker for most classes compared to the misclassifications, indicating suboptimal overall performance except for class 10.
+            </p>     
 
         <h4>6. XGBOOST</h4>
         <div class="image-with-text">
             <img src="images/models/image6.png" alt="Crime Statistics Image 3">
         </div>
+        <p>The code implements the XGBoost Regressor model to predict the target variable SNA_NEIGHBORHOOD, which likely represents a specific category or neighborhood-related feature. Predicting this variable is significant as it can help uncover localized patterns, trends, or relationships in the data. For example, understanding neighborhood-specific metrics could aid in better resource allocation, identifying hotspots for intervention, or gaining insights into regional variations that inform decision-making processes.</p>
         <p>After training the XGBoost Regressor on the scaled training data, the model's performance is evaluated using metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE). The MAE of 0.88 indicates that the predictions, on average, deviate by less than one unit from the actual values. The MSE of 7.81 measures the squared average error, penalizing larger deviations more heavily, while the RMSE of 2.79 provides an interpretable measure of error in the same units as the target variable. These metrics demonstrate that the XGBoost model effectively captures patterns in the data with relatively low error.</p>
+        <p>Overall, the ability to predict SNA_NEIGHBORHOOD with this level of accuracy highlights the value of the model in providing actionable insights for neighborhood-specific analysis. The robustness of XGBoost, combined with effective preprocessing, ensures that the model can handle complex relationships and feature interactions.</p>
+
 
         <h5>7. LSTM</h5>
         <div class="image-with-text">
@@ -432,8 +476,16 @@ it likely improved the computational efficiency and performance by reducing nois
         <div class="image-with-text">
             <img src="images/models/image8.png" alt="Crime Statistics Image 3">
         </div>
+        <div class="image-with-text">
+            <img src="images/models/CM6.jpeg" alt="Crime Statistics Image 3">
+        </div>
         <p>The code implements an LSTM (Long Short-Term Memory) model to predict the target variable HATE_BIAS, which categorizes hate-related biases. This prediction is highly significant as it provides insights into patterns of hate-related incidents, enabling law enforcement agencies and policymakers to identify and address targeted discrimination and violence effectively. By understanding these biases, proactive measures can be implemented to foster safer, more inclusive communities and improve support systems for those affected.</p>
         <p>The model performed exceptionally well, achieving an accuracy of 96.35%, a precision of 95.98%, a recall of 96.35%, and an F1-score of 95.99%, indicating a strong balance between precision and recall. These metrics demonstrate that the model can effectively predict hate bias categories with high reliability. The use of LSTM ensures that temporal patterns and relationships in the data are captured, making it particularly suitable for sequential datasets. The results highlight the potential of this approach to provide actionable insights, supporting efforts to reduce hate-related incidents and improve community safety.</p>
+        <p>Label Distribution: The matrix shows predictions across labels 0-17 (with some numbers missing in the sequence). The model appears to heavily favor predicting class 16, followed by class 14
+            Major Patterns: Class 14 shows mixed performance: 1586 correct predictions (class 14), but 670 instances misclassified as class 16. Class 16 has 1283 correct predictions, with 122 instances misclassified as class 14
+            Most other classes (0-10) are consistently misclassified as class 16, though with relatively small numbers (1-9 instances each)
+            Model Behavior: The model makes predictions primarily in classes 14 and 16. There’s a clear binary confusion between classes 14 and 16. Many classes receive zero predictions, indicating the model isn't utilizing its full output space
+            </p>
 
         <h5>8. GRADIENT BOOSTING</h5>
         <div class="image-with-text">
