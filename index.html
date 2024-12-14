@@ -32,12 +32,28 @@
         <p>We are a team of three consisting of,</p>
 
             <p>Pranav Vinayak Chopdekar, Nikhil Jaswaraj Karkera, Mahendra Varmah Vaddi and we are doing a project upon crime data analysis</p>
-        </p>
-            As we speak, crime has been rising over the last few decades. Numerous crimes are committed that violate people's moral and ethical principles. Every week, thousands of instances are reported in the USA. It turns out that some of these cases are also quite serious.
-            Law enforcement organizations and legislators have been searching for novel ways to increase crime prevention tactics and public safety because of the recent spike in crime rates. Using data mining techniques to examine crime data is one such method that offers insightful information on trends, patterns, and correlations in crime. 
-            To analyze past crime data, spot underlying trends, and forecast future instances of criminal activity, this research will make use of data mining techniques. This research will unearth important data that will help law enforcement organizations allocate resources, prevent crime, and develop strategic plans. In the end, this analysis's conclusions will aid in the creation of data-driven policies that improve community safety.
-            The information we selected was obtained from the US government website and includes almost one lakh rows with information on the county in which the incident occurred, the type of offense committed, and the age of the offender. We would be able to extract significant insights by utilizing R and Python.
-            </p>
+            <p>
+                As we speak, crime has been rising over the last few decades. Numerous crimes are committed that violate people's moral and ethical principles, leaving lasting impacts on individuals and communities. Every week, thousands of instances are reported in the USA, ranging from petty thefts to violent offenses, with some cases being extraordinarily severe and garnering national attention. This steady rise in crime has raised alarm bells for both the public and authorities, emphasizing the urgent need for effective strategies to combat this issue. 
+                </p>
+                <p>
+                Law enforcement organizations and legislators have been searching for novel ways to enhance crime prevention tactics and public safety because of this concerning spike in crime rates. One of the promising solutions lies in leveraging advanced technology and data analysis to understand the root causes of crime. Using data mining techniques to examine crime data offers insightful information on trends, patterns, and correlations that are often invisible to the naked eye. These insights can enable policymakers and law enforcement to take proactive measures rather than just reactive responses. 
+                </p>
+                <p>
+                To address this issue, our research aims to analyze past crime data, identify underlying trends, and predict future criminal activities. By applying data mining and machine learning techniques, we aim to unearth patterns that could help allocate resources effectively, prevent potential crimes, and devise strategic plans tailored to specific regions and crime types. For instance, identifying areas prone to seasonal property crimes or neighborhoods frequently reporting violent offenses can inform law enforcement on where to prioritize patrolling and community outreach programs. 
+                </p>
+                <p>
+                This research not only seeks to provide actionable intelligence for crime prevention but also strives to contribute to the development of long-term, data-driven policies that enhance community safety. The insights gained from analyzing this data will help establish a systematic approach to tackling crime, addressing socio-economic disparities, and improving public trust in law enforcement agencies.
+                </p>
+                <p>
+                The dataset we selected for this analysis was obtained from a trusted source—the US government’s open data platform. It comprises nearly one lakh rows of detailed information about reported incidents, including the county where each crime occurred, the type of offense committed, and demographic data such as the age and gender of the offenders. By utilizing powerful analytical tools in R and Python, we can extract meaningful insights from this extensive dataset. Techniques like clustering, regression analysis, and geospatial mapping will enable us to uncover hidden relationships in the data, identify hotspots, and forecast future crime trends with accuracy.
+                </p>
+                <p>
+                Furthermore, our research will integrate socio-economic indicators such as unemployment rates, education levels, and income disparities to assess their impact on crime rates. This multidimensional approach will provide a comprehensive understanding of how environmental and societal factors contribute to criminal activities. For example, our analysis could reveal whether regions with higher poverty levels are more vulnerable to specific types of crimes or if educational initiatives have successfully reduced crime rates in certain areas.
+                </p>
+                <p>
+                In the end, the conclusions drawn from this analysis will empower law enforcement agencies to adopt a proactive stance, allowing them to address crime more efficiently and effectively. By utilizing state-of-the-art data mining tools, we aim to pave the way for smarter, safer communities where crime prevention is driven by accurate data and informed decision-making. This research highlights the transformative potential of technology and analytics in creating a safer society for all.
+                </p>
+                
 
             <h2>The Nature of the Topic</h2>
             <p>
@@ -518,6 +534,19 @@ it likely improved the computational efficiency and performance by reducing nois
     <!-- Conclusion Section -->
     <section id="conclusion">
         <h2>4. Conclusion & Results</h4>
+        <h4>Results</h4>
+        <p>
+            The results of the implemented models showcase a diverse range of performances, each excelling in specific aspects while facing unique challenges. The <strong>Gradient Boosting Classifier</strong> stood out with an almost perfect accuracy of <strong>99.99%</strong>, precision, recall, and F1-scores all reaching <strong>1.00</strong>. This exceptional performance highlights its strength in automating crime classification, providing reliable predictions across various categories. However, the near-perfect accuracy suggests potential overfitting, warranting further validation on unseen datasets. Similarly, the <strong>LSTM model</strong> performed exceptionally well, achieving an accuracy of <strong>96.35%</strong> and a balanced F1-score of <strong>95.99%</strong>. Its ability to capture temporal patterns and relationships in the data made it particularly effective for sequential datasets, such as predicting hate-bias categories. Despite its success, minor class confusion and limited predictions for underrepresented labels revealed opportunities for further enhancement.
+            </p>
+            
+            <p>
+            <strong>Random Forest</strong> and <strong>XGBoost</strong> were also strong contenders, showcasing solid predictive capabilities. Random Forest achieved an accuracy of <strong>93.00%</strong> and an F1-score of <strong>0.90</strong>, demonstrating its effectiveness in identifying victim demographics and crime patterns. However, it showed a noticeable bias toward major classes, which impacted its performance for rare categories. XGBoost demonstrated high predictive accuracy with metrics like an <strong>MAE of 0.88</strong> and <strong>RMSE of 2.79</strong>, excelling in capturing localized patterns in neighborhood-specific data. These models highlighted the value of incorporating advanced preprocessing techniques, such as PCA for dimensionality reduction, which enhanced computational efficiency while retaining essential data variability. Both models would benefit from further hyperparameter tuning and additional feature engineering to achieve even greater generalizability.
+            </p>
+            
+            <p>
+            Among the moderately performing models, <strong>KNN</strong>, <strong>SVM</strong>, and <strong>Naive Bayes</strong> showed potential but struggled with class imbalance and underrepresented categories. KNN achieved an accuracy of <strong>82.14%</strong> but faced challenges with minority class predictions, which reduced its overall macro-average F1-score. SVM, with an accuracy of <strong>70.38%</strong>, demonstrated moderate success but struggled to generalize well for rare classes. Naive Bayes provided a balanced performance with an F1-score of <strong>82.71%</strong>, excelling in probabilistic predictions but showing errors in dominant class misclassification. Despite these limitations, each of these models could benefit from techniques such as dataset rebalancing, oversampling, or additional feature selection. Overall, the <strong>Gradient Boosting Classifier</strong> emerged as the <strong>best-performing model</strong> due to its outstanding predictive accuracy and reliability, making it the most effective for this crime data analysis project.
+            </p>
+            
         <h4>KEY INSIGHTS</h1>
 
         <h5>1. Crime Trends Identification</h5>
