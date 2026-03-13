@@ -1,12 +1,4 @@
 # Crime-data-analysis
-
-## Team 💼
-
-We are a team of three consisting of,<br/> 
-Pranav Vinayak Chopdekar <br/> 
-Nikhil Jaswaraj Karkera <br/> 
-Mahendra Varmah Vaddi <br/> 
-
 ## About The Project 🖥️
 
 Law enforcement organizations and legislators have been searching for novel ways to increase crime prevention tactics and public safety because of the recent spike in crime rates. Using data mining techniques to examine crime data is one such method that offers insightful information on trends, patterns, and correlations in crime. 
